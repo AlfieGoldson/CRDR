@@ -71,6 +71,7 @@ body {
 		grid-template-areas: 'pin';
 		justify-items: center;
 		align-items: center;
+		transition: 0.15s all ease;
 
 		.pin {
 			fill: var(--accent);
@@ -79,10 +80,6 @@ body {
 			z-index: 2;
 			cursor: pointer;
 			filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.16));
-
-			&.reversed {
-				transform: scaleX(-1);
-			}
 		}
 		h3 {
 			grid-area: pin;
@@ -98,6 +95,19 @@ body {
 			}
 			h3 {
 				color: var(--accent);
+			}
+		}
+
+		&.reversed {
+			.pin {
+				transform: scaleX(-1);
+			}
+		}
+
+		&:hover {
+			transform: translateX(-8px) scale(1.1);
+			&.reversed {
+				transform: translateX(8px) scale(1.1);
 			}
 		}
 	}
