@@ -30,6 +30,10 @@ body {
 	flex-direction: column;
 	padding: 0 2rem;
 
+	.guitar-container {
+		position: relative;
+	}
+
 	.guitar {
 		display: grid;
 		grid-template-areas: 'guitar';
@@ -57,15 +61,8 @@ body {
 	h1 {
 		margin: 2rem auto;
 		color: var(--accent);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		svg {
-			cursor: pointer;
-			fill: var(--accent);
-		}
 	}
+
 	.pin-container {
 		display: grid;
 		grid-template-areas: 'pin';
@@ -104,7 +101,8 @@ body {
 			}
 		}
 
-		&:hover {
+		&:hover,
+		&.playing {
 			transform: translateX(-8px) scale(1.1);
 			&.reversed {
 				transform: translateX(8px) scale(1.1);
@@ -117,4 +115,30 @@ body {
 	fill: var(--dark);
 	height: 420px;
 	filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.16));
+}
+
+.pause-btn {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	svg {
+		fill: var(--dark);
+		width: 6rem;
+		transition: 0.15s all ease;
+		filter: none;
+
+		&:hover {
+			transform: scale(1.15);
+		}
+	}
+
+	&.playing {
+		svg {
+			fill: var(--accent);
+			filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.16));
+		}
+	}
 }

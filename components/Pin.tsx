@@ -13,9 +13,9 @@ export default function Pin({ title, sound, reversed }: Props) {
 	return (
 		<div
 			style={{ top: 'xd' }}
-			className={`pin-container ${
-				currentSound == title ? 'playing' : ''
-			} ${reversed ? 'reversed' : ''}`}
+			className={`pin-container ${currentSound == title && 'playing'} ${
+				reversed && 'reversed'
+			}`}
 			onClick={() => playSound(title, sound)}
 		>
 			<h3>{title}</h3>
